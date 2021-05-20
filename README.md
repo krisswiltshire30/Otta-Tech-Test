@@ -25,7 +25,8 @@ The reaction data consists of four columns:
 
 **Task**: The similarity score between two users is the number of jobs which they both like. Find the two users with the highest similarity.
 
-**Answer**: 1791 & 5193 with a similarity score of 405
+**Answer**: **1791 & 5193 with a similarity score of 405**
+![](images/Task1.png)
 
 ### Task 2
 
@@ -34,6 +35,7 @@ In the `data` folder there is an additional CSV file called `jobs.csv`. It conta
 **Task**: The similarity score between two companies is the number of users who like at least one job at both companies. Using both the `reactions.csv` and `jobs.csv` data, find the two companies with the highest similarity score.
 
 **Answer**: 60 & 35 with a similarity score of 17
+![](images/Task2.png)
 
 ### Task 3
 
@@ -48,19 +50,20 @@ We don't think it's fair to ask you to build something with a UI, as we know thi
 - If you can't link to anything, a screenshot is also fine
 
 **Answer**: [VoiceBox](https://voicebox.site/)
+![](images/Task3.png)
 
 **Task**: Tell us about the biggest challenge you faced in building the above.
 
 **Answer**: The above was developed using Gatsby, React, GraphQL and NetlifyCMS, I took over the sole development of this product halfway before it was pushed live. I had to learn Graphql and the buggy nuances of NetlifyCMS pretty quickly, and did so in a short time span, went live on time, and I'm even growing to love the buggy nuances!
 
-The only other challenge I would say was working with Netlify-CMS. Netlify CMS is pretty bare bones and beautiful, but it does have its downsides when it comes to visibility and configurability. 
+The only other challenge I would say was working with Netlify-CMS. Netlify CMS is pretty bare bones and beautiful, but it does have its downsides when it comes to visibility and configurability.
 
 ## Submission
 
 Once you've completed all of the above tasks, make sure:
 
-- [ ] You've committed all of the code used, and your edited answers, to the `main` branch
-- [ ] You've pushed the changes to your repo
-- [ ] You add `XavKearney` and `shfranklin` as contributors for your personal repo, and send a link to the repo in an email or Otta message to us
+- [x] You've committed all of the code used, and your edited answers, to the `main` branch
+- [x] You've pushed the changes to your repo
+- [x] You add `XavKearney` and `shfranklin` as contributors for your personal repo, and send a link to the repo in an email or Otta message to us
 
 Good luck!
