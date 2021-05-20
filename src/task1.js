@@ -33,6 +33,12 @@ const task1 = async () => {
         });
     }
 
+    // Sort users by highest count of liked jobs
+    uniqueUserIds.sort(function (a, b) {
+        return b.likedJobs.length - a.likedJobs.length;
+    });
+
+
     console.log(uniqueUserIds);
 }
 
