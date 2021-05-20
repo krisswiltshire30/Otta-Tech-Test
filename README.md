@@ -47,11 +47,13 @@ We don't think it's fair to ask you to build something with a UI, as we know thi
 - If the best example of your work is something you've done at a company, it's okay to link to a live deployed version
 - If you can't link to anything, a screenshot is also fine
 
-**Answer**: _[Add a link to repo/website/screenshot here]_
+**Answer**: [VoiceBox](https://voicebox.site/)
 
 **Task**: Tell us about the biggest challenge you faced in building the above.
 
-**Answer**: _[Write your answer here (300 words max)]_
+**Answer**: The above was developed using Gatsby, React, GraphQL and NetlifyCMS, I took over the sole development of this product halfway before it was pushed live. I had to learn Graphql and the buggy nuances of NetlifyCMS pretty quickly, and did so in a short time span, went live on time, and I'm even growing to love the buggy nuances!
+
+The only other challenge I would say was working with Netlify-CMS. Netlify CMS is pretty bare bones and beautiful, but it does have its downsides when it comes to visibility and configurability. 
 
 ## Submission
 
