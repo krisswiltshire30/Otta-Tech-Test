@@ -4,6 +4,7 @@ const task2 = async () => {
     const allJobsJSON = await getJobs.json();
     const allReactionsJSON = await getReactions.json();
     const uniqueCompanyIds = [];
+    const uniqueUserIds = [];
 
     //Get all liked jobs
     const allLikedJobs = allReactionsJSON.filter((item) => {
@@ -28,9 +29,22 @@ const task2 = async () => {
         }
     }
 
+    const compareUserId = (item) => {
+        return item.user_id === allLikedJobs[i].user_id;
+    };
+
+    // find all unique user IDs
+    for (i = 0; i < allLikedJobs.length; i++) {
+        if (!uniqueUserIds.find(compareUserId)) {
+            allLikedJobs[i].likedJobs = [];
+            uniqueUserIds.push(allLikedJobs[i]);
+        }
+    }
+
+
 
     console.log("Task2");
-    console.log(allLikedJobs);
+    console.log(uniqueUserIds);
 
 }
 
