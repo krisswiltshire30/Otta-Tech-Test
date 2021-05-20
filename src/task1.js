@@ -1,7 +1,8 @@
 const task1 = async () => {
-    const getAllReactions = await fetch("../data/json/reactions.json")
-    const allReactionsJSON = await getAllReactions.json()
-    const uniqueUserIds = []
+    const getAllReactions = await fetch("../data/json/reactions.json");
+    const allReactionsJSON = await getAllReactions.json();
+    const uniqueUserIds = [];
+    const similarityScores = [];
 
     // Get all elements with jobs that have been liked
     const allLikedJobs = allReactionsJSON.filter((item) => {
@@ -45,24 +46,25 @@ const task1 = async () => {
             if (arrayB.indexOf(arrayA[i]) != -1)
                 matches++;
         }
-        return matches;
+        return matches
     }
 
+    let comparable = uniqueUserIds[0];
 
-    console.log("should return 3"); 
-    console.log(similarityHandler([1,2,3],[1,2,3])); 
-    console.log("should return 3"); 
-    console.log(similarityHandler([1,2,3,4,5,6],[1,2,3])); 
-    console.log("should return 2"); 
-    console.log(similarityHandler([1,2],[1,2,3])); 
-    console.log("should return 0"); 
-    console.log(similarityHandler([1,2,3],[4,5,6])); 
-
-
-
+    for (let i = 0; i < uniqueUserIds.length; i++) {
+        if (comparable.likedJobs === uniqueUserIds[i].likedJobs) {
+            continue;
+        } else {
+            let similarities = similarityHandler(comparable.likedJobs, uniqueUserIds[i].likedJobs);
+            similarityScores.push({
+                compared_uids: comparable.user_id + " & " + uniqueUserIds[i].user_id,
+                similarity_score: similarities
+            })
+        }
+    }
 
     console.log("Task1");
-    console.log(uniqueUserIds);
+    console.log(similarityScores);
 }
 
 task1()
