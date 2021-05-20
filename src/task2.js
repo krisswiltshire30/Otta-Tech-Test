@@ -5,6 +5,10 @@ const task2 = async () => {
     const allReactionsJSON = await getReactions.json();
     const uniqueCompanyIds = [];
 
+    //Get all liked jobs
+    const allLikedJobs = allReactionsJSON.filter((item) => {
+        return item.direction === "true";
+    });
 
     //Get all companies
     const allCompanies = allJobsJSON.filter((item) => {
@@ -26,7 +30,7 @@ const task2 = async () => {
 
 
     console.log("Task2");
-    console.log(uniqueCompanyIds);
+    console.log(allLikedJobs);
 
 }
 
