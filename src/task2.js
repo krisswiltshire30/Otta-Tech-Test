@@ -41,6 +41,22 @@ const task2 = async () => {
         }
     }
 
+    // Find all users liked jobs.
+    // Add all of a users liked jobs to their
+    // corresponding object, as an array
+    for (i = 0; i < uniqueUserIds.length; i++) {
+        let filtered = allLikedJobs.filter((item) => {
+            return item.user_id === uniqueUserIds[i].user_id;
+        });
+
+        filtered.forEach((item) => {
+            uniqueUserIds[i].likedJobs.push(item.job_id);
+        });
+        //Remove redundant data
+        delete uniqueUserIds[i].job_id
+        delete uniqueUserIds[i].direction
+        delete uniqueUserIds[i].time
+    }
 
 
     console.log("Task2");
