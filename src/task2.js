@@ -69,6 +69,10 @@ const task2 = async () => {
         });
     }
 
+    //Sort by highest job_id count
+    uniqueCompanyIds.sort(function (a, b) {
+        return b.all_job_ids.length - a.all_job_ids.length;
+    });
 
 
 
