@@ -3,15 +3,28 @@ const task2 = async () => {
     const getReactions = await fetch('./data/json/reactions.json');
     const allJobsJSON = await getJobs.json();
     const allReactionsJSON = await getReactions.json();
+    const uniqueCompanyIds = [];
+
 
     //Get all companies
     const allCompanies = allJobsJSON.filter((item) => {
         return item.company_id
     });
 
+    const compareCompanyId = (item) => {
+        return item.company_id === allCompanies[i].company_id;
+    };
+
+    // find all unique company IDs
+    for (i = 0; i < allCompanies.length; i++) {
+        if (!uniqueCompanyIds.find(compareCompanyId)) {
+            uniqueCompanyIds.push(allCompanies[i]);
+        }
+    }
+
 
     console.log("Task2");
-    console.log(allCompanies);
+    console.log(uniqueCompanyIds);
 
 }
 
