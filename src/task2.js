@@ -74,6 +74,31 @@ const task2 = async () => {
         return b.all_job_ids.length - a.all_job_ids.length;
     });
 
+    const similarityScoreHandler = (arrayA, arrayB) => {
+        for (i = 0; i < arrayA.length; i++) {
+            if (arrayB.indexOf(arrayA[i]) != -1) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+
+    //Sort through each company and user id and find the similarity score
+    for (let i = 0; i < uniqueCompanyIds.length; i++) {
+        for (let j = 0; j < uniqueUserIds.length; j++) {
+            let likedJobCount = similarityScoreHandler(uniqueCompanyIds[i].all_job_ids, uniqueUserIds[j].likedJobs);
+            if (likedJobCount) {
+                uniqueCompanyIds[i].similarity_score ++
+            }
+        }
+    }
+
+    //Sort by highest similarity score
+    uniqueCompanyIds.sort(function (a, b) {
+        return b.similarity_score - a.similarity_score;
+    });
+
 
 
     console.log("Task2");
