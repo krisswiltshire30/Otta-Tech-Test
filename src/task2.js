@@ -58,9 +58,22 @@ const task2 = async () => {
         delete uniqueUserIds[i].time
     }
 
+    // Find all company_id specific job_ids and add to array
+    for (i = 0; i < uniqueCompanyIds.length; i++) {
+        let filtered = allJobsJSON.filter((item) => {
+            return item.company_id === uniqueCompanyIds[i].company_id;
+        });
+
+        filtered.forEach((item) => {
+            uniqueCompanyIds[i].all_job_ids.push(item.job_id);
+        });
+    }
+
+
+
 
     console.log("Task2");
-    console.log(uniqueUserIds);
+    console.log(uniqueCompanyIds);
 
 }
 
