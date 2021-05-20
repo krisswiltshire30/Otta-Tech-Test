@@ -49,22 +49,30 @@ const task1 = async () => {
         return matches
     }
 
-    let comparable = uniqueUserIds[0];
-
-    for (let i = 0; i < uniqueUserIds.length; i++) {
-        if (comparable.likedJobs === uniqueUserIds[i].likedJobs) {
-            continue;
-        } else {
-            let similarities = similarityHandler(comparable.likedJobs, uniqueUserIds[i].likedJobs);
-            similarityScores.push({
-                compared_uids: comparable.user_id + " & " + uniqueUserIds[i].user_id,
-                similarity_score: similarities
-            })
+    // Iterate through uniqueUserIds
+    // find similarity score by counting the matches within each likedJobs array
+    // Store in similarityScores object
+    for (let i = 1; i < uniqueUserIds.length; i++) {
+        for (let j = 0; j < uniqueUserIds.length; j++) {
+            if (uniqueUserIds[i].user_id === uniqueUserIds[j].user_id) {
+                continue
+            } else {
+                let similarities = similarityHandler(uniqueUserIds[j].likedJobs, uniqueUserIds[i].likedJobs);
+                similarityScores.push({
+                    compared_uids: uniqueUserIds[j].user_id + " & " + uniqueUserIds[i].user_id,
+                    similarity_score: similarities
+                })
+            }
         }
     }
 
+    //Sort by highest similarity score
+    similarityScores.sort(function (a, b) {
+        return b.similarity_score - a.similarity_score;
+    });
+
     console.log("Task1");
-    console.log(similarityScores);
+    console.log(similarityScores[0]);
 }
 
 task1()
