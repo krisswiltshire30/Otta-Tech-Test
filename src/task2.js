@@ -18,6 +18,8 @@ const task2 = async () => {
     // find all unique company IDs
     for (i = 0; i < allCompanies.length; i++) {
         if (!uniqueCompanyIds.find(compareCompanyId)) {
+            allCompanies[i].similarity_score = 0;
+            allCompanies[i].all_job_ids = [];
             uniqueCompanyIds.push(allCompanies[i]);
         }
     }
